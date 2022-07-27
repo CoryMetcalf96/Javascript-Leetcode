@@ -22,7 +22,14 @@ Constraints:
 0 <= prices[i] <= 104
 
 Pseudocode:
-
+1. Establish a starting profit variable.
+2. Check to make sure the array isn't null and that it has a length of 2 or mor.
+    a. Establish a variable for the best price to buy as the starting element.
+    b. Establish a variable for the best price to sell as 0 to begin with.
+    c. Loop through the entire array.
+        1. Set the profit to the highest value, comparing the current profit and the current price - the current best price to buy.
+        2. Set the best price to buy to the lowest value, comparting the current price to buy and the current price in the iteration.
+3. Return the profit.
 */
 
 public class Solution {

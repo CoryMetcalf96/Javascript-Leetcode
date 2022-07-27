@@ -82,6 +82,25 @@ Constraints:
 0 <= prices[i] <= 104
 
 Pseudocode:
-
+1. Establish the starting profit of 0 and set a starting minimum as the first element of the array.
+2. Begin to loop through the array, skipping the first element because we've already accounted for it.
+    a. Set the minimum to the lowest value, comparing the current minimum and the previous element in the array.
+    b. Set the profit to the highest value between the current profit and the current element/price minus the minimum,
+3. Return the profit.
 */
 
+var maxProfit = function(prices) {
+    // Establish the profit as 0 and the current minimum as 0th index of the array.
+    let profit = 0
+    let min = prices[0]
+
+    // Loop through the entire array, starting at the index 1.
+    for(let i = 1; i < prices.length; i++){
+        // Set the minimum to the minimum between the current minimum and the previous index.
+        min = Math.min(min, prices[i-1])
+        // Set the profit to the maximum between the current profit and the current price - the minimum.
+        profit = Math.max(prices[i]-min, profit)
+    }
+    // Return the profit.
+    return profit
+};
